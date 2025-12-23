@@ -5,6 +5,7 @@ import (
 
 	"github.com/bereket-7/gin-template/internal/config"
 	"github.com/bereket-7/gin-template/internal/logger"
+	"github.com/bereket-7/gin-template/internal/redis"
 	"github.com/bereket-7/gin-template/internal/router"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
@@ -17,8 +18,14 @@ type App struct {
 
 func New() *App {
 	cfg := config.Load()
+
+	redisErr := redis.Connect(cfg.Redis)
 	logger.Init(cfg.Env)
 	logger.Log.Info("application starting", zap.String("env", cfg.Env), zap.String("port", cfg.Port))
+
+	if redisErr != nil {
+		logger.Log.Error("failed to connect to redis", zap.Error(redisErr))
+	}
 
 	if cfg.Env == "production" {
 		gin.SetMode(gin.ReleaseMode)
