@@ -1,7 +1,6 @@
 package config
 
 import (
-	"log"
 	"os"
 
 	"github.com/joho/godotenv"
@@ -20,7 +19,6 @@ func Load() *Config {
 		Port: getEnv("APP_PORT", "8080"),
 	}
 
-	log.Printf("Environment: %s", cfg.Env)
 	return cfg
 }
 
