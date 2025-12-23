@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Author: Bereket](https://img.shields.io/badge/Author-Bereket-blue.svg)](https://github.com/bereket-7)
 
-An expert-grade, production-ready starter template for building high-performance RESTful APIs with **Go** and the **Gin** framework. This template implements best practices for clean architecture, structured logging, and configuration management.
+An production-ready starter template for building high-performance RESTful APIs with **Go** and the **Gin** framework. This template implements best practices for clean architecture, structured logging, and configuration management.
 
 ---
 
