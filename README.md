@@ -48,7 +48,7 @@ graph TD
 
 ### Prerequisites
 
-- Go `1.22+` (Recommended)
+- Go `1.25+` (Recommended)
 - Make (Optional, for using Makefile)
 
 ### Installation
@@ -119,6 +119,7 @@ The application uses environment variables for configuration. See `.env.example`
 |----------|-------------|---------|
 | `APP_ENV` | Application environment (development/production) | `development` |
 | `APP_PORT` | Port the server listens on | `8500` |
+| `ALLOWED_ORIGINS` | CORS allowed origins | `*` |
 
 ---
 
