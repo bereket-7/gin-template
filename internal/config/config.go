@@ -16,17 +16,19 @@ type RedisConfig struct {
 }
 
 type Config struct {
-	Env   string
-	Port  string
-	Redis RedisConfig
+	Env            string
+	Port           string
+	AllowedOrigins string
+	Redis          RedisConfig
 }
 
 func Load() *Config {
 	_ = godotenv.Load()
 
 	cfg := &Config{
-		Env:  getEnv("APP_ENV", "development"),
-		Port: getEnv("APP_PORT", "8080"),
+		Env:            getEnv("APP_ENV", "development"),
+		Port:           getEnv("APP_PORT", "8500"),
+		AllowedOrigins: getEnv("ALLOWED_ORIGINS", "*"),
 		Redis: RedisConfig{
 			Host:     getEnv("REDIS_HOST", "localhost"),
 			Port:     getEnv("REDIS_PORT", "6379"),
