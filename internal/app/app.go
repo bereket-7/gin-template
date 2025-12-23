@@ -25,10 +25,10 @@ type App struct {
 func New() *App {
 	cfg := config.Load()
 
-	redisErr := redis.Connect(cfg.Redis)
 	logger.Init(cfg.Env)
 	logger.Log.Info("application starting", zap.String("env", cfg.Env), zap.String("port", cfg.Port))
 
+	redisErr := redis.Connect(cfg.Redis)
 	if redisErr != nil {
 		logger.Log.Error("failed to connect to redis", zap.Error(redisErr))
 	}
@@ -39,7 +39,7 @@ func New() *App {
 
 	engine := gin.New()
 
-	router.Setup(engine)
+	router.Setup(engine, cfg)
 
 	return &App{
 		engine: engine,
