@@ -6,3 +6,15 @@ build:
 
 test:
 	go test ./...
+
+tidy:
+	go mod tidy
+
+fmt:
+	go fmt ./...
+
+clean:
+	rm -rf bin
+
+lint:
+	go vet ./...
