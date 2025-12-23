@@ -71,6 +71,7 @@ graph TD
 
 ### Running the Application
 
+#### Local Development
 Using **Make**:
 ```bash
 make run
@@ -81,7 +82,32 @@ Or using **Go CLI**:
 go run cmd/server/main.go
 ```
 
-The server will start at `http://localhost:8500` (by default).
+#### Docker (Recommended)
+You can run the entire stack (API + Redis) using Docker Compose:
+
+```bash
+# Start the services
+docker-compose up --build
+
+# Run in background
+docker-compose up -d
+```
+
+The server will start at `http://localhost:8080` (as configured in `docker-compose.yml`).
+
+---
+
+## 🐋 Docker Usage
+
+### Build Image
+```bash
+docker build -t gin-api .
+```
+
+### Run with Docker Compose
+```bash
+docker-compose up --build
+```
 
 ---
 
