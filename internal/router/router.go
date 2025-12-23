@@ -8,6 +8,7 @@ import (
 
 func Setup(r *gin.Engine) {
 	// Global middleware
+	r.Use(middleware.CORS())
 	r.Use(middleware.Logger())
 	r.Use(middleware.Recovery())
 
