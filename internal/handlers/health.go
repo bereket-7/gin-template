@@ -1,3 +1,13 @@
+// HealthCheck godoc
+// @Summary      Health check
+// @Description  Check API and Redis health
+// @Tags         Health
+// @Accept       json
+// @Produce      json
+// @Success      200 {object} map[string]string
+// @Failure      503 {object} map[string]string
+// @Router       /health [get]
+
 package handlers
 
 import (
